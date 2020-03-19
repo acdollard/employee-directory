@@ -1,11 +1,12 @@
-.form {
-  margin: 20px;
-  display: block;
+.form-group {
+  display: flex;
 }
 
-.form input {
-  display: block;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  width: 100%;
+.form-group > .form-control {
+  display: inline-flex;
+  margin: 5px;
+}
+
+.form-group > .btn {
+  display: inline-flex;
 }

@@ -13,7 +13,7 @@ function EmployeeCard(props) {
       <div className="content">
         <ul>
           <li>
-            <strong>Name:</strong> {result.name.first + result.name.last}
+            <strong>Name:</strong> {result.name.first +  " " + result.name.last}
           </li>
           <li>
             <strong>Email:</strong> {result.email}

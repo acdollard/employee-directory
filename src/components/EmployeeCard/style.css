@@ -7,13 +7,14 @@
   width: 325px;
   box-shadow: 0 3px 6px #999, 0 3px 6px #999;
   text-align: left;
+ 
 }
 
 .card > .img-container {
   height: 60%;
   overflow: hidden;
   text-align: center;
-  background:#6CADDC;
+  background: rgb(40, 112, 30);
 }
 .card > .img-container > img {
   width: 60%
