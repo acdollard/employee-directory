@@ -28,7 +28,7 @@ class EmployeeWrapper extends Component {
 
       render() {
           return(
-              <div>
+              <div className="EmployeeWrapper">
                   <EmployeeCard results={this.state.results} />
               </div>
           )
