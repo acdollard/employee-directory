@@ -1,30 +1,60 @@
 import React, { Component } from "react";
-import EmployeeCard from "./components/EmployeeCard";
-import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
-import friends from "./friends.json";
 import SearchBar from "./components/SearchBar";
 import EmployeeWrapper from "./components/EmployeeWrapper"
+import API from "./utils/API"
 
 
 class App extends Component {
-  // Setting this.state.friends to the friends json array
+
   state = {
-    friends
+    results: [],
+    dob: "",
+    name: "",
   };
 
+  // When this component mounts, search the Giphy API for pictures of kittens
+  componentDidMount() {
+    this.searchEmployees();
+  }
 
 
 
-  // Map over this.state.friends and render a FriendCard component for each friend object
+  searchEmployees = query => {
+    API.search(query)
+      .then(res => {
+        this.setState({ results: res.data.results });
+       
+        console.log(this.state.results)
+                     })
+      .catch(err => console.log(err))
+  }
+
+
+  sortByAge = () => {
+
+    const {results} = this.state
+    const SortedArray = results.sort((a,b) => {return a.dob.date > b.dob.date})
+    console.log(SortedArray);
+    this.setState({
+      results: SortedArray
+    });
+ 
+  }
+
+
+
+
+
   render() {
     return (
-      <Wrapper>
-        <Title>Employee Directory</Title>
-        <SearchBar />
-        <EmployeeWrapper />
+     <React.Fragment>
 
-      </Wrapper>
+       <Title>Employee Directory</Title>
+       <SearchBar sortByAge={this.sortByAge}  />
+       <EmployeeWrapper results={this.state.results} />
+     </React.Fragment>
+
     );
   }
 }
