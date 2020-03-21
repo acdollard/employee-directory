@@ -12,17 +12,11 @@ function SearchForm(props) {
           <input
             value={props.search}
             onChange={props.handleInputChange}
-            name="breed"
-            list="breeds"
             type="text"
             className="form-control"
-            placeholder="Who are you looking for?"
-            id="breed"
+            placeholder="Search by Last Name"
           />
-          <datalist id="breeds">
-            <option value="Filter by State" />
-            <option value="Sort by Age" />
-          </datalist>
+
 
             
           <button type="submit" onClick={props.handleFormSubmit} className="btn btn-danger">
