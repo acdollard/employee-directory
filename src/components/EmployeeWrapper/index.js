@@ -10,7 +10,10 @@ function EmployeeWrapper(props) {
 
           return(
             <div className="EmployeeWrapper">
-              <EmployeeCard results={props.results} />
+              <EmployeeCard 
+              results={props.results}
+              search={props.search}
+              />
             </div>
           )
 

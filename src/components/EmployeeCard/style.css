@@ -46,3 +46,8 @@
 .card > .remove:hover {
   color: #d50000;
 }
+
+.cardDiv{
+  width:100%;
+  display: inline-block;
+}
