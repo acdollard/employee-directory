@@ -47,22 +47,55 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
+  y_2_o(a, b, e) {
+    // Use toUpperCase() to ignore character casing
+      const personA = a.dob.date;
+      const personB = b.dob.date;
+      let comparison = 0;
+      if (personA < personB) {
+        comparison = 1;
+      } else if (personA > personB) {
+        comparison = -1;
+      } 
+      return comparison;
+  }
+
+  o_2_y(a, b, e) {
+    // Use toUpperCase() to ignore character casing
+      const personA = a.dob.date;
+      const personB = b.dob.date;
+      let comparison = 0;
+      if (personA > personB) {
+        comparison = 1;
+      } else if (personA < personB) {
+        comparison = -1;
+      } 
+      return comparison;
+  }
 
   sortByAge = (e) => {
     e.preventDefault();
-
+   if(e.target.name==="o2y"){
+     const {results} = this.state
+     const sortedArray = results.sort(this.o_2_y)
+     console.log("sorted array", sortedArray);
+     this.setState({
+       results: sortedArray
+     }, ()=>{console.log("state", this.state)});
+   } else if (e.target.name==="y2o"){
     const {results} = this.state
-    const sortedArray = results.sort((a,b) => {return new Date(a.dob.date) > new Date(b.dob.date)})
+    const sortedArray = results.sort(this.y_2_o)
     console.log("sorted array", sortedArray);
     this.setState({
       results: sortedArray
     }, ()=>{console.log("state", this.state)});
+   }
   }
+
 
 
   handleInputChange = event => {
     this.setState({ search: event.target.value })
-    
   };
 
 
