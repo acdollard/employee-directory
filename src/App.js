@@ -24,9 +24,7 @@ class App extends Component {
 
 
   searchEmployees = query => {
-    const name = [];
-    const dob = [];
-    const location = [];
+
     const result = [];
     //runs API call and sets state for the entire response, also pulling out name and birthday as their own state keys
     API.search(query)
@@ -35,14 +33,9 @@ class App extends Component {
         res.data.results.forEach((person)=> {
          const fullName = `${person.name.first} ${person.name.last}`
          person.name.full_Name = fullName;
-         const birthday = person.dob.date
-         const loc = `${person.location.city}, ${person.location.state}`
-         name.push(fullName);
-         dob.push(birthday);
-         location.push(loc);
          result.push(person);
         })
-        this.setState({ name:name, dob:dob, location:location, results:result})
+        this.setState({results:result})
        
         console.log(this.state.results)
                      })

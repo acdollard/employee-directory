@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
 import Moment from 'moment';
+import { Container, Row, Col } from 'reactstrap';
 
 function EmployeeCard({ results, search }) {
 
@@ -39,12 +40,12 @@ function EmployeeCard({ results, search }) {
     
 
   return (
-    <div className ="cardDiv col-12">
-      <row className ="row col-12">
+    <Container className ="cardDiv col-12">
+      <Row className ="row col-12">
       {namesList}
 
-      </row>
-    </div>
+      </Row>
+    </Container>
   );
 }
 
