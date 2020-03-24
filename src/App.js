@@ -18,6 +18,7 @@ class App extends Component {
 
   componentDidMount() {
     this.searchEmployees();
+
   }
 
 
@@ -33,6 +34,7 @@ class App extends Component {
         console.log(res);
         res.data.results.forEach((person)=> {
          const fullName = `${person.name.first} ${person.name.last}`
+         person.name.full_Name = fullName;
          const birthday = person.dob.date
          const loc = `${person.location.city}, ${person.location.state}`
          name.push(fullName);

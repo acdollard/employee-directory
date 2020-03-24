@@ -6,7 +6,7 @@ function EmployeeCard({ results, search }) {
 
   const namesList = results
   .filter(name => {
-    return name.name.last.toLowerCase().indexOf(search.toLowerCase()) >= 0
+    return (name.name.full_Name.toLowerCase().indexOf(search.toLowerCase()) >= 0 )
   }).map((result) => {
         return(
         <div className="card"
