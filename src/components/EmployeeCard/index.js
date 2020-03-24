@@ -40,8 +40,8 @@ function EmployeeCard({ results, search }) {
     
 
   return (
-    <Container className ="cardDiv col-12">
-      <Row className ="row col-12">
+    <Container className ="cardDiv">
+      <Row className ="row">
       {namesList}
 
       </Row>

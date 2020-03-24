@@ -9,9 +9,6 @@ class App extends Component {
 
   state = {
     results: [],
-    dob: [],
-    name: [],
-    location: [],
     search: "",
   };
 
@@ -21,12 +18,10 @@ class App extends Component {
 
   }
 
-
-
+  //this function queries the employee API for the employee's data, then creates and adds a property "fullName"
   searchEmployees = query => {
-
     const result = [];
-    //runs API call and sets state for the entire response, also pulling out name and birthday as their own state keys
+
     API.search(query)
       .then(res => {
         console.log(res);
@@ -35,6 +30,7 @@ class App extends Component {
          person.name.full_Name = fullName;
          result.push(person);
         })
+
         this.setState({results:result})
        
         console.log(this.state.results)
@@ -42,6 +38,7 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
+  //a comparison function for youngest to oldest
   y_2_o(a, b, e) {
     // Use toUpperCase() to ignore character casing
       const personA = a.dob.date;
@@ -54,7 +51,7 @@ class App extends Component {
       } 
       return comparison;
   }
-
+  // comparison function for oldest to youngest
   o_2_y(a, b, e) {
     // Use toUpperCase() to ignore character casing
       const personA = a.dob.date;
@@ -71,18 +68,19 @@ class App extends Component {
   sortByAge = (e) => {
     e.preventDefault();
    if(e.target.name==="o2y"){
-     const {results} = this.state
-     const sortedArray = results.sort(this.o_2_y)
-     console.log("sorted array", sortedArray);
-     this.setState({
-       results: sortedArray
-     }, ()=>{console.log("state", this.state)});
-   } else if (e.target.name==="y2o"){
-    const {results} = this.state
-    const sortedArray = results.sort(this.y_2_o)
-    console.log("sorted array", sortedArray);
-    this.setState({
-      results: sortedArray
+      const {results} = this.state
+      const sortedArray = results.sort(this.o_2_y)
+      console.log("sorted array", sortedArray);
+      this.setState({
+        results: sortedArray
+      }, ()=>{console.log("state", this.state)});
+   } 
+   else if (e.target.name==="y2o"){
+      const {results} = this.state
+      const sortedArray = results.sort(this.y_2_o)
+      console.log("sorted array", sortedArray);
+      this.setState({
+        results: sortedArray
     }, ()=>{console.log("state", this.state)});
    }
   }
@@ -100,11 +98,10 @@ class App extends Component {
     return (
      <React.Fragment>
 
-       <Title>Employee Directory</Title>
+       <Title />
        <SearchBar 
        sortByAge={this.sortByAge}
        handleInputChange={this.handleInputChange}
-       handleFilter={this.handleFilter}
        searchByEmployee={this.searchByEmployee}
        results={this.state.results}
        search={this.state.search}
@@ -112,7 +109,7 @@ class App extends Component {
        <EmployeeWrapper 
           results={this.state.results}
           search={this.state.search}
-           />
+        />
      </React.Fragment>
 
     );

@@ -1,10 +1,134 @@
-* {
-  box-sizing: border-box;
-  font-family: sans-serif;
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700i");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+}
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-html, body, #root {
-  padding: 0;
-  margin: 0;
-  height: 100%;
+
+.title {
+  position: relative;
+  height: 70px;
+  right: -10%;
+  text-align: center;
+  font-size: 3rem;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  margin-top:40px;
+  display: inline-flex;
+}
+
+.for_ageists {
+  font-weight: 700;
+  font-style: italic;
+  padding-left: .5ch;
+}
+
+.title:before {
+  position: absolute;
+  content: "";
+  z-index: -2;
+  top: -100%;
+  left: -45%;
+  height: 450%; /* 6X of .title*/
+  width: 40%;
+  background: url("images/hello.svg") 50% 50% / contain no-repeat;
+}
+.title:after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  bottom: -2%;
+  left: 0;
+  height: 35%;
+  width: 100%;
+  background: #f0898b;
+}
+
+.btn {
+  border-radius: 12px;
+  background-color:#f0898b ;
+  color: white;
+}
+
+.btn:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.btn-2 {
+  border-radius: 12px;
+  background-color:#6c63ff;
+}
+
+.EmployeeWrapper {
+  justify-content: center;
+}
+
+.row {
+  justify-content: center;
+}
+
+.card {
+  background: #fff;
+  border-radius: 2px;
+  height: 325px;
+  margin: 1rem;
+  position: relative;
+  width: 325px;
+  box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+  text-align: left;
+  align-self: center;
+  justify-self: center;
+ 
+}
+
+.card > .img-container {
+  height: 60%;
+  overflow: hidden;
+  text-align: center;
+  background:  #f0898b;
+}
+.card > .img-container > img {
+  width: 60%
+}
+
+.card > .content {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 12px;
+}
+
+.card > .content > ul {
+  list-style-type: none;
+}
+
+.card > .content > ul > li {
+  margin-top: 10px;
+}
+
+.card > .remove {
+  color: #ff1744;
+  font-size: 48px;
+  position: absolute;
+  top: -20px;
+  right: 5px;
+  cursor: pointer;
+}
+
+.card > .remove:hover {
+  color: #d50000;
+}
+
+.cardDiv{
+  width:100%;
+  display: inline-block;
 }

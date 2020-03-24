@@ -2,7 +2,11 @@ import React from "react";
 import "./style.css";
 
 function Title(props) {
-  return <h1 className="title">{props.children}</h1>;
+  return (
+  <div className="title">
+    Employee Directory...<div className="for_ageists">for Ageists!</div>
+  </div>
+  )
 }
 
 export default Title;
